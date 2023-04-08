@@ -1,2 +1,3 @@
-# mitre-attack-csv
-Generate CSV files for MITRE ATT&amp;CK Tactics and Techniques
+# MITRE ATT&CK CSV
+
+Python script that generates CSV files for MITRE ATT&CK Tactics and Techniques
