@@ -6,19 +6,16 @@ env:
   CSV_FILES: '*.csv'
 
 on:
-  workflow_dispatch
-  #push:
-  #  branches: [main]
-  #schedule:
-  #  - cron: '0 9 * * 1'
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 9 * * 1'
 
 permissions:
   contents: write
 
 jobs:
   execute:
-    #needs: lint
-
     name: Execute main script
     runs-on: ubuntu-latest
 
