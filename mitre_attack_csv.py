@@ -7,6 +7,8 @@ import requests
 # MITRE ATT&CK URL Data
 URL = "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack.json"
 
+# Output folder
+FOLDER = "output"
 # Output files
 FILE_TACTIC = "mitre_attack_tactic.csv"
 FILE_TECHNIQUE = "mitre_attack_technique.csv"
@@ -112,7 +114,8 @@ if __name__ == "__main__":
 
     print("Writing Tactic file...")
 
-    with open(FILE_TACTIC, "a") as f:
+    filename_tactic = "./" + FOLDER + "/" + FILE_TACTIC
+    with open(filename_tactic, "a") as f:
         f.write("id;name\n")
         for tactic in tactics:
             f.write(f"{tactic};{tactics[tactic]}\n")
@@ -121,7 +124,8 @@ if __name__ == "__main__":
 
     print("Writing Technique file...")
 
-    with open(FILE_TECHNIQUE, "a") as f:
+    filename_technique = "./" + FOLDER + "/" + FILE_TECHNIQUE
+    with open(filename_technique, "a") as f:
         f.write("id;name\n")
         for technique in techniques:
             f.write(f"{technique};{techniques[technique]}\n")
