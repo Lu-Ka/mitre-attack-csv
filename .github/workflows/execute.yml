@@ -37,7 +37,7 @@ jobs:
       - name: Install script dependencies
         shell: bash
         run: |
-          poetry install --no-interaction
+          poetry install --no-interaction --no-root
 
       - name: Execute script
         shell: bash
