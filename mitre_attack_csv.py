@@ -1,6 +1,5 @@
 #!/usr/local/bin/python3
 
-import json
 import requests
 
 
@@ -115,7 +114,7 @@ if __name__ == "__main__":
     print("Writing Tactic file...")
 
     filename_tactic = "./" + FOLDER + "/" + FILE_TACTIC
-    with open(filename_tactic, "a") as f:
+    with open(filename_tactic, "w") as f:
         f.write("id;name\n")
         for tactic in tactics:
             f.write(f"{tactic};{tactics[tactic]}\n")
@@ -125,7 +124,7 @@ if __name__ == "__main__":
     print("Writing Technique file...")
 
     filename_technique = "./" + FOLDER + "/" + FILE_TECHNIQUE
-    with open(filename_technique, "a") as f:
+    with open(filename_technique, "w") as f:
         f.write("id;name\n")
         for technique in techniques:
             f.write(f"{technique};{techniques[technique]}\n")
