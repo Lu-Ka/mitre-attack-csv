@@ -47,8 +47,8 @@ jobs:
       - name: Commit files
         shell: bash
         run: |
-          git config --local user.name actions-user
-          git config --local user.email "actions@github.com"
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           if ! git diff --exit-code; then
               git add ${CSV_FILES}
               git commit -am ":seedling: CSV files autoupdate"
