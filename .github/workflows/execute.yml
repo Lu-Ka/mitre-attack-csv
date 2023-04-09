@@ -1,0 +1,54 @@
+name: execute
+run-name: 'Execute main script that updates MITRE ATT&CK CSV files'
+
+env:
+  PYTHON_SCRIPT: 'mitre_attack_csv.py'
+  CSV_FILES: '*.csv'
+
+on:
+  workflow_dispatch
+  #push:
+  #  branches: [main]
+  #schedule:
+  #  - cron: '0 9 * * 1'
+
+
+jobs:
+  execute:
+    needs: lint
+
+    name: Execute main script
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install poetry
+        shell: bash
+        run: |
+          pip install poetry
+
+      - name: Install script dependencies
+        shell: bash
+        run: |
+          poetry install --no-interaction
+
+      - name: Execute script
+        shell: bash
+        run: |
+          poetry run python ${PYTHON_SCRIPT}
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v4
+        with:
+          author_name: ${{ github.actor }}
+          author_email: ${{ github.actor }}@users.noreply.github.com
+          message: ":seedling: Autoupdate of CSV files"
+          add: ${CSV_FILES}
+          branch: ${{ github.ref }}
