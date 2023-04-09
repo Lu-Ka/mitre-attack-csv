@@ -15,7 +15,7 @@ on:
 
 jobs:
   execute:
-    needs: lint
+    #needs: lint
 
     name: Execute main script
     runs-on: ubuntu-latest
