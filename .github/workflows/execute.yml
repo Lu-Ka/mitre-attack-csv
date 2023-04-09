@@ -44,11 +44,13 @@ jobs:
         run: |
           poetry run python ${PYTHON_SCRIPT}
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v4
-        with:
-          author_name: ${{ github.actor }}
-          author_email: ${{ github.actor }}@users.noreply.github.com
-          message: ":seedling: Autoupdate of CSV files"
-          add: ${CSV_FILES}
-          branch: ${{ github.ref }}
+      - name: Commit files
+        shell: bash
+        run: |
+          git config --local user.name actions-user
+          git config --local user.email "actions@github.com"
+          if ! git diff --exit-code; then
+              git add ${CSV_FILES}
+              git commit -am ":seedling: CSV files autoupdate"
+              git push -f origin main
+          fi
