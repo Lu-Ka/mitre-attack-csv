@@ -8,6 +8,7 @@ T1021.005;Remote Services: VNC
 T1047;Windows Management Instrumentation
 T1156;Malicious Shell Modification
 T1113;Screen Capture
+T1027.011;Obfuscated Files or Information: Fileless Storage
 T1067;Bootkit
 T1037;Boot or Logon Initialization Scripts
 T1557;Adversary-in-the-Middle
@@ -67,6 +68,7 @@ T1016.001;System Network Configuration Discovery: Internet Connection Discovery
 T1548.003;Abuse Elevation Control Mechanism: Sudo and Sudo Caching
 T1560.003;Archive Collected Data: Archive via Custom Method
 T1578;Modify Cloud Compute Infrastructure
+T1583.008;Acquire Infrastructure: Malvertising
 T1069;Permission Groups Discovery
 T1114;Email Collection
 T1003.002;OS Credential Dumping: Security Account Manager
@@ -107,9 +109,11 @@ T1013;Port Monitors
 T1600;Weaken Encryption
 T1606.002;Forge Web Credentials: SAML Tokens
 T1192;Spearphishing Link
+T1036.008;Masquerading: Masquerade File Type
 T1489;Service Stop
 T1587.001;Develop Capabilities: Malware
 T1121;Regsvcs/Regasm
+T1652;Device Driver Discovery
 T1206;Sudo Caching
 T1087.002;Account Discovery: Domain Account
 T1547.014;Boot or Logon Autostart Execution: Active Setup
@@ -271,6 +275,7 @@ T1021;Remote Services
 T1071.003;Application Layer Protocol: Mail Protocols
 T1556.007;Modify Authentication Process: Hybrid Identity
 T1595.002;Active Scanning: Vulnerability Scanning
+T1059.009;Command and Scripting Interpreter: Cloud API
 T1596;Search Open Technical Databases
 T1207;Rogue Domain Controller
 T1553.006;Subvert Trust Controls: Code Signing Policy Modification
@@ -290,7 +295,7 @@ T1563;Remote Service Session Hijacking
 T1027.001;Obfuscated Files or Information: Binary Padding
 T1505.003;Server Software Component: Web Shell
 T1484.001;Domain Policy Modification: Group Policy Modification
-T1217;Browser Bookmark Discovery
+T1217;Browser Information Discovery
 T1552.004;Unsecured Credentials: Private Keys
 T1583.004;Acquire Infrastructure: Server
 T1021.006;Remote Services: Windows Remote Management
@@ -417,6 +422,7 @@ T1619;Cloud Storage Object Discovery
 T1606.001;Forge Web Credentials: Web Cookies
 T1134.001;Access Token Manipulation: Token Impersonation/Theft
 T1567.001;Exfiltration Over Web Service: Exfiltration to Code Repository
+T1021.007;Remote Services: Cloud Services
 T1205.001;Traffic Signaling: Port Knocking
 T1583.006;Acquire Infrastructure: Web Services
 T1528;Steal Application Access Token
@@ -433,6 +439,7 @@ T1087.004;Account Discovery: Cloud Account
 T1057;Process Discovery
 T1562.003;Impair Defenses: Impair Command History Logging
 T1053.004;Scheduled Task/Job: Launchd
+T1556.008;Modify Authentication Process: Network Provider DLL
 T1546.003;Event Triggered Execution: Windows Management Instrumentation Event Subscription
 T1596.004;Search Open Technical Databases: CDNs
 T1497.002;Virtualization/Sandbox Evasion: User Activity Based Checks
@@ -446,6 +453,7 @@ T1060;Registry Run Keys / Startup Folder
 T1606;Forge Web Credentials
 T1621;Multi-Factor Authentication Request Generation
 T1554;Compromise Client Software Binary
+T1552.008;Unsecured Credentials: Chat Messages
 T1059.001;Command and Scripting Interpreter: PowerShell
 T1023;Shortcut Modification
 T1546.001;Event Triggered Execution: Change Default File Association
@@ -534,6 +542,7 @@ T1174;Password Filter DLL
 T1547.002;Boot or Logon Autostart Execution: Authentication Package
 T1218.010;System Binary Proxy Execution: Regsvr32
 T1002;Data Compressed
+T1567.003;Exfiltration Over Web Service: Exfiltration to Text Storage Sites
 T1081;Credentials in Files
 T1592.002;Gather Victim Host Information: Software
 T1128;Netsh Helper DLL
@@ -547,6 +556,7 @@ T1036.003;Masquerading: Rename System Utilities
 T1102.002;Web Service: Bidirectional Communication
 T1203;Exploitation for Client Execution
 T1595.003;Active Scanning: Wordlist Scanning
+T1562.011;Impair Defenses: Spoof Security Alerting
 T1137.004;Office Application Startup: Outlook Home Page
 T1573.002;Encrypted Channel: Asymmetric Cryptography
 T1567.002;Exfiltration Over Web Service: Exfiltration to Cloud Storage
@@ -610,6 +620,7 @@ T1569;System Services
 T1059.003;Command and Scripting Interpreter: Windows Command Shell
 T1055.009;Process Injection: Proc Memory
 T1223;Compiled HTML File
+T1650;Acquire Access
 T1601.001;Modify System Image: Patch System Image
 T1558.002;Steal or Forge Kerberos Tickets: Silver Ticket
 T1213;Data from Information Repositories
@@ -626,11 +637,13 @@ T1556.001;Modify Authentication Process: Domain Controller Authentication
 T1537;Transfer Data to Cloud Account
 T1027.006;Obfuscated Files or Information: HTML Smuggling
 T1556.005;Modify Authentication Process: Reversible Encryption
+T1027.010;Obfuscated Files or Information: Command Obfuscation
 T1130;Install Root Certificate
 T1022;Data Encrypted
 T1070.004;Indicator Removal: File Deletion
 T1189;Drive-by Compromise
 T1498;Network Denial of Service
+T1651;Cloud Administration Command
 T1546.016;Event Triggered Execution: Installer Packages
 T1595.001;Active Scanning: Scanning IP Blocks
 T1158;Hidden Files and Directories
