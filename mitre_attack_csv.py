@@ -11,6 +11,7 @@ FOLDER = "output"
 # Output files
 FILE_TACTIC = "mitre_attack_tactic.csv"
 FILE_TECHNIQUE = "mitre_attack_technique.csv"
+FILE_TECHNIQUE_TACTIC = "mitre_attack_technique_tactic.csv"
 
 
 def getMitreAttackData():
@@ -35,6 +36,7 @@ def getTacticInfo(tactic):
 class MitreTechniques:
     def __init__(self) -> None:
         self.techniques = {}
+        self.techniques_tactics = {}
         self.failed_subtechniques = []
 
     def addTechnique(self, technique_id, name, parent_name=None):
@@ -45,9 +47,17 @@ class MitreTechniques:
 
         return
 
+    def addTactics(self, technique_id, tactics_info):
+        tactics = [t["phase_name"] for t in tactics_info]
+
+        self.techniques_tactics[technique_id] = tactics
+
+        return
+
     def getTechniqueInfo(self, technique):
         technique_id = technique["external_references"][0]["external_id"]
         name = technique["name"]
+        tactics_info = technique["kill_chain_phases"]
 
         if technique["x_mitre_is_subtechnique"]:
             parent_id = technique_id.split(".")[0]
@@ -62,6 +72,8 @@ class MitreTechniques:
 
         else:
             self.addTechnique(technique_id, name)
+
+        self.addTactics(technique_id, tactics_info)
 
         return
 
@@ -103,6 +115,7 @@ if __name__ == "__main__":
 
     cls_technique.processFailedSubTechniques()
     techniques = cls_technique.techniques
+    techniques_tactics = cls_technique.techniques_tactics
 
     print("[+] Tactics and Techniques retrieved\n")
 
@@ -129,6 +142,17 @@ if __name__ == "__main__":
         for technique in techniques:
             f.write(f"{technique};{techniques[technique]}\n")
 
-    print("[+] Technique file created")
+    print("[+] Technique file created\n")
+
+    print("Writing Technique / Tactics file...")
+
+    filename_technique_tactic = "./" + FOLDER + "/" + FILE_TECHNIQUE_TACTIC
+    with open(filename_technique_tactic, "w") as f:
+        f.write("technique_id;tactics\n")
+        for technique in techniques_tactics:
+            tactics = ",".join(techniques_tactics[technique])
+            f.write(f"{technique};{tactics}\n")
+
+    print("[+] Technique / Tactics file created")
 
     exit()
