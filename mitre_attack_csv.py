@@ -13,6 +13,23 @@ FILE_TACTIC = "mitre_attack_tactic.csv"
 FILE_TECHNIQUE = "mitre_attack_technique.csv"
 FILE_TECHNIQUE_TACTIC = "mitre_attack_technique_tactic.csv"
 
+TACTIC_NAME = {
+    "collection": "Collection",
+    "command-and-control": "CommandAndControl",
+    "credential-access": "CredentialAccess",
+    "defense-evasion": "DefenseEvasion",
+    "discovery": "Discovery",
+    "execution": "Execution",
+    "exfiltration": "Exfiltration",
+    "impact": "Impact",
+    "initial-access": "InitialAccess",
+    "lateral-movement": "LateralMovement",
+    "persistence": "Persistence",
+    "privilege-escalation": "PrivilegeEscalation",
+    "reconnaissance": "Reconnaissance",
+    "resource-development": "ResourceDevelopment",
+}
+
 
 def getMitreAttackData():
     try:
@@ -48,7 +65,7 @@ class MitreTechniques:
         return
 
     def addTactics(self, technique_id, tactics_info):
-        tactics = [t["phase_name"] for t in tactics_info]
+        tactics = [TACTIC_NAME[t["phase_name"]] for t in tactics_info]
 
         self.techniques_tactics[technique_id] = tactics
 
