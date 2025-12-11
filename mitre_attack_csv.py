@@ -148,10 +148,10 @@ if __name__ == "__main__":
 
     filename_technique_tactic = "./" + FOLDER + "/" + FILE_TECHNIQUE_TACTIC
     with open(filename_technique_tactic, "w") as f:
-        f.write("technique_id;tactics\n")
+        f.write("technique_id,tactics\n")
         for technique in techniques_tactics:
-            tactics = ",".join(techniques_tactics[technique])
-            f.write(f"{technique};{tactics}\n")
+            tactics = "/".join(techniques_tactics[technique])
+            f.write(f"{technique},{tactics}\n")
 
     print("[+] Technique / Tactics file created")
 
