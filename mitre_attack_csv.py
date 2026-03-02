@@ -2,7 +2,6 @@
 
 import requests
 
-
 # MITRE ATT&CK URL Data
 URL = "https://raw.githubusercontent.com/mitre-attack/attack-stix-data/master/enterprise-attack/enterprise-attack.json"
 
